@@ -1,6 +1,8 @@
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
+import { CorsOptions } from '@nestjs/common/interfaces/external/cors-options.interface';
+
 // import cors from 'cors';
 
 async function bootstrap() {
@@ -8,9 +10,16 @@ async function bootstrap() {
 
   // Enable global validation pipe
 
- 
+   // Define CORS options
+   const corsOptions: CorsOptions = {
+    origin: ['https://finalhackathonfrontend.vercel.app'], // or specify your frontend URL(s) here
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // or specify the methods you need
+    allowedHeaders: ['Content-Type', 'Authorization'], // or specify the headers you need
+  };
+
   // Enable CORS with options
-  app.enableCors();
+  app.enableCors(corsOptions);
+ 
 
   app.useGlobalPipes(new ValidationPipe());
 
