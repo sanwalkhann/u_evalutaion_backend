@@ -10,7 +10,7 @@ async function bootstrap() {
   // Enable global validation pipe
 
   const corsOptions: CorsOptions = {
-    origin: ['https://u-evaluation-frontend.vercel.app/'], // or specify your frontend URL(s) here
+    origin: ['https://u-evaluation-frontend.vercel.app'], // or specify your frontend URL(s) here
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // or specify the methods you need
     allowedHeaders: ['Content-Type', 'Authorization'], // or specify the headers you need
   };
